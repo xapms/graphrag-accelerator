@@ -31,6 +31,8 @@
 		// "type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.azure,target=/home/vscode/.azure",
 		// Mounts the ssh details from the host machine - this allows the container to connect to ssh hosts
 		"type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh",
+		// Mount the DQMM source code folder into the container
+		"type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/DQMM,target=/home/vscode/DQMM",
 		// Mount docker socket for docker builds
 		"type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock"
 	],
@@ -83,5 +85,5 @@
 	},
 	"postCreateCommand": "bash /usr/local/bin/entrypoint.sh",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/graphrag-accelerator,type=bind,consistency=cached",
-	"workspaceFolder": "/graphrag-accelerator"
+	"workspaceFolder": "/home/vscode/DQMM"
 }
